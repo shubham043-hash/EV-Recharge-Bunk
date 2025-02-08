@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Charge EV Station</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2ecc71;
+            --secondary-color: #3498db;
+            --background-color: #f4f4f4;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+        }
+        .container {
+            width: 85%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .charging-stations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .station {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .station-status {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        .status-indicator {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
+        .available {
+            background-color: #2ecc71;
+        }
+        .occupied {
+            background-color: #e74c3c;
+        }
+        #chargeForm {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #27ae60;
+        }
+        .map-container {
+            margin-top: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        @media (max-width: 768px) {
+            .charging-stations {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Green Charge EV Station</h1>
+            <p>Sustainable Charging Solutions</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="charging-stations">
+            <div class="station">
+                <h3>Station A</h3>
+                <p>Fast Charging (150kW)</p>
+                <div class="station-status">
+                    <span>Status:</span>
+                    <div class="status-indicator available"></div>
+                </div>
+            </div>
+            <div class="station">
+                <h3>Station B</h3>
+                <p>Standard Charging (50kW)</p>
+                <div class="station-status">
+                    <span>Status:</span>
+                    <div class="status-indicator occupied"></div>
+                </div>
+            </div>
+            <div class="station">
+                <h3>Station C</h3>
+                <p>Ultra-Fast Charging (350kW)</p>
+                <div class="station-status">
+                    <span>Status:</span>
+                    <div class="status-indicator available"></div>
+                </div>
+            </div>
+        </div>
+
+        <form id="chargeForm">
+            <h2>Book Charging Slot</h2>
+            <div class="form-group">
+                <label>Vehicle Type</label>
+                <select>
+                    <option>Electric Car</option>
+                    <option>Electric Bike</option>
+                    <option>Electric Bus</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Charging Station</label>
+                <select>
+                    <option>Station A (Fast Charging)</option>
+                    <option>Station B (Standard Charging)</option>
+                    <option>Station C (Ultra-Fast Charging)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Preferred Date & Time</label>
+                <input type="datetime-local">
+            </div>
+            <button type="submit">Book Slot</button>
+        </form>
+
+        <div class="map-container">
+            <h2>Our Location</h2>
+            "<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241316.9770871389!2d72.56709589529567!3d19.08229324889674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1737885584047!5m2!1sen!2sin" width="1100" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
+    </div>
+    <script src="firebase.js"></script>
+    <script src="login.js"></script>
+    <script src="navbar.js"></script>
+</body>
+</html>
